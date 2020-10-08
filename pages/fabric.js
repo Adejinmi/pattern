@@ -32,19 +32,13 @@ const Fabric = ({ fabrics }) => {
 };
 
 export async function getStaticProps() {
-	// Call an external API endpoint to get posts.
-	// You can use any data fetching library
-	const {
-		data: { data },
-	} = await axios.get('http://localhost:3000/api/fabric');
+	// const {
+	// 	data: { data },
+	// } = await axios.get('https://patternandproduce.herokuapp.com/api/fabrics');
 
-	console.log(data);
-
-	// By returning { props: posts }, the Blog component
-	// will receive `posts` as a prop at build time
 	return {
 		props: {
-			fabrics: data,
+			fabrics: [],
 		},
 	};
 }
