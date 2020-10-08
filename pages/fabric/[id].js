@@ -1,8 +1,7 @@
 import React from 'react';
-import { CenterText, Grid } from 'components/Styles';
-import material from 'public/images/material.png';
+import { Grid } from 'components/Styles';
 import styled from 'styled-components';
-import fabric from 'public/images/material.png';
+import axios from 'axios';
 
 export const FabricList = styled.ul`
 	position: relative;
@@ -10,14 +9,28 @@ export const FabricList = styled.ul`
 		display: flex;
 		justify-content: space-between;
 		border-bottom: 1px solid #e2e2e2;
-		padding: 5px 0;
+		padding: 15px 0 3px;
+		font-size: 0.85rem;
+		p:first-child {
+			text-transform: uppercase;
+		}
+		button {
+			background-color: #417505;
+			color: white;
+			font-size: 0.75rem;
+			padding: 5px;
+			border-radius: 10px;
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 `;
 
-const Fabric = () => (
-	<>
-		<Grid columns={['1fr', '1fr']} gap='20px'>
-			<img src={fabric} />
+const Fabric = ({ fabric }) => {
+	return (
+		<Grid columns={['1fr', '1fr']} gap='20px' style={{ marginTop: '60px' }}>
+			<img src={fabric.imgUrl} />
 			<div>
 				<FabricList>
 					<li>
@@ -26,44 +39,52 @@ const Fabric = () => (
 					</li>
 					<li>
 						<p>Weight</p>
-						<p>280G / MEDIUM (260-320GR)</p>
+						<p>{fabric?.weight}</p>
 					</li>
-					<li>
-						<p>Width</p>
-						<p>150CM</p>
-					</li>
+
 					<li>
 						<p>COMPOSITION</p>
-						<p>100% WOOL</p>
+						<p>{fabric?.composition}</p>
 					</li>
 					<li>
 						<p>COLOUR</p>
-						<p>BLUE MEDIUM</p>
+						<p>{fabric?.color}</p>
 					</li>
 					<li>
 						<p>DESIGN</p>
-						<p>GLEN CHECK</p>
+						<p>{fabric?.design}</p>
 					</li>
 					<li>
 						<p>WEAVE</p>
-						<p>2/2 TWILL</p>
-					</li>
-					<li>
-						<p>DYE</p>
-						<p>YARN DYE</p>
-					</li>
-					<li>
-						<p>CLOTH LABEL</p>
-						<p>YARN DYE</p>
-					</li>
-					<li>
-						<p>SELVEDGE</p>
-						<p>SCABAL * SUPER | 30’S</p>
+						<p>{fabric?.weave}</p>
 					</li>
 				</FabricList>
 			</div>
 		</Grid>
-	</>
-);
+	);
+};
 
+// export async function getStaticPaths() {
+// 	return {
+// 		paths: [{ params: { id: '*' } }],
+// 		fallback: true,
+// 	};
+// }
+
+export async function getServerSideProps({ params }) {
+	// Call an external API endpoint to get posts.
+	// You can use any data fetching library
+	const id = params.id;
+	const {
+		data: { data },
+	} = await axios.get(`http://localhost:3000/api/fabric/${id}`);
+
+	// By returning { props: posts }, the Blog component
+	// will receive `posts` as a prop at build time
+	return {
+		props: {
+			fabric: data,
+		},
+	};
+}
 export default Fabric;
