@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
 export const Layout = styled.div`
 	max-width: 1200px;
@@ -11,12 +12,21 @@ export const Layout = styled.div`
 `;
 
 function MyApp({ Component, pageProps }) {
-	return (
+	const [isOpen, setIsOpen] = React.useState(false);
+	const [left, setLeft] = React.useState(-230);
+	const handleNavBar = () => {
+		setLeft(isOpen ? -230 : 0);
+		setIsOpen(!isOpen);
+	};
+	const router = useRouter();
+	return router.route !== '/cmt' ? (
 		<Layout>
-			<Header />
+			<Header handleNavBar={handleNavBar} isOpen={isOpen} left={left}/>
 			<Component {...pageProps} />
 			<Footer />
 		</Layout>
+	) : (
+		<Component {...pageProps} />
 	);
 }
 

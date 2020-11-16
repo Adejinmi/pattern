@@ -5,20 +5,24 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start -p $PORT"
+		"start:prod": "next start -p $PORT",
+		"start": "next start"
 	},
 	"dependencies": {
 		"@zeit/next-css": "^1.0.1",
 		"@zeit/next-sass": "^1.0.1",
 		"axios": "^0.20.0",
+		"formik": "^2.2.5",
 		"mongodb": "^3.6.2",
 		"next": "9.5.3",
 		"next-connect": "^0.9.0",
 		"next-images": "^1.4.1",
 		"nextjs-fonts": "^0.22.0",
+		"nodemailer": "^6.4.16",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
 		"react-icons": "^3.11.0",
-		"styled-components": "^5.2.0"
+		"styled-components": "^5.2.0",
+		"yup": "^0.29.3"
 	}
 }

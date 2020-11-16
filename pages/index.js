@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CenterText, Grid, Button, H2, Section } from '../components/Styles';
+import AppointmentModal from 'components/AppointmentModal';
 import image1 from 'public/images/landingImg.jpeg';
 import image3 from 'public/images/madeToMeasure.jpeg';
 import image4 from 'public/images/measure1.jpeg';
@@ -27,104 +28,106 @@ const MainImg = styled.img`
 	object-fit: cover;
 `;
 
-const IndexPage = () => (
-	<>
-		<Section>
-			<H2>
-				<CenterText>Made to measure</CenterText>
-			</H2>
-			<Grid columns={['2fr', '1fr']} gap='30px' isReverse>
-				<MainImg src={image1} />
-				<div>
-					<p>
-						Drawing on its sartorial expertise, Dior Men invites you to come and discover the Made to
-						measure , available in selected boutiques
-					</p>
-					<Button>MAKE AN APPOINTMENT AT A BOUTIQUE</Button>
-				</div>
-			</Grid>
-		</Section>
-		<Section>
-			<H2>
-				<CenterText>Made to measure</CenterText>
-			</H2>
-			<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
-				<div>
-					<p>
-						The Made to measure is based on the emblematic Dior cuts (suits, dinner jackets, coats and
-						shirts). <br />
-						Each chosen model is perfectly adapted to your measurements thanks to Dior Men tailoring
-						expertise.
-					</p>
-				</div>
-				<MainImg src={image3} />
-			</Grid>
-			<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
-				<GridImg src={image4} style={{ objectPosition: 'bottom' }} />
-				<GridImg src={image5} />
-				<GridImg src={image6} style={{ objectPosition: 'right' }} />
-			</Grid>
-		</Section>
+const IndexPage = () => {
+	const [modal, setModal] = React.useState(true);
 
-		<Section>
-			<H2>
-				<CenterText>CHOICE OF FABRIC</CenterText>
-			</H2>
-			<Grid columns={['2fr', '1fr']} gap='30px'>
-				<MainImg src={image7} style={{ objectPosition: 'bottom right' }} />
-				<p>
-					This personalised service allows you to benefit from a wide variety of fabrics, preselected by Kim
-					Jones for their sophistication and quality. The Made to measure is made up of around 500 fabrics for
-					suits, dinner jackets, coats and shirts and allows you to choose from different materials (Super
-					130s to Super 180s virgin wool, mohair wool, silk, cashmere, etc.) and different patterns (Plain,
-					textured, striped, Prince of Wales check, houndstooth, checked, etc.). Around 200 exceptional
-					fabrics (120/2 to 300/2 cotton, stretch cotton, etc.) for shirts complete the service, these can be
-					personalised with the “Bee” embroidery, symbolic of Dior, or with hand embroidered initials.
-				</p>
-			</Grid>
-		</Section>
-
-		<Section>
-			<H2>
-				<CenterText>TAILORING IN STORE</CenterText>
-			</H2>
-			<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
-				<p>
-					Dior offers you the opportunity to have your purchases altered to ensure an impeccable finish. The
-					perfect blend between the modernity of Dior Men style and traditional elegance, each piece is
-					adapted to your measurements and made in keeping with time-honoured techniques to produce
-					exceptional quality. To enjoy this service, Dior invites you to choose and contact one of our
-					boutiques to agree on an appointment with a tailor and Made-to-measure expert.
-				</p>
-				<MainImg src={image8} />
-			</Grid>
-			<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
-				<GridImg src={image9} />
-				<GridImg src={image10} style={{ objectPosition: 'right' }} />
-				<GridImg src={image11} />
-			</Grid>
-		</Section>
-
-		<Section>
-			<H2>
-				<CenterText>LIST OF BOUTIQUES</CenterText>
-			</H2>
-			<Grid columns={['2fr', '1fr']} gap='30px'>
-				<Grid columns={['1fr', '1fr']}>
-					<MainImg src={image12} />
-					<MainImg src={image14} />
+	return (
+		<>
+			<Section>
+				<H2>
+					<CenterText>The Stuido</CenterText>
+				</H2>
+				<Grid columns={['2fr', '1fr']} gap='30px' isReverse>
+					<MainImg src={image1} />
+					<div>
+						<p>
+							The Pattern & Produce studios is passionately committed to developing exceptional skilled
+							workforce, for the purpose of sustainable, utilitarian, tribal, and affluence wearables, in
+							the bespoke and ready-to-wear line.
+							<br /> Our design model is fulcrum on people, planet and profit.
+						</p>
+						<Button onClick={() => setModal(true)}>MAKE AN APPOINTMENT AT A BOUTIQUE</Button>
+					</div>
 				</Grid>
-				<ul>
-					<li>PARIS,MONTAIGNE</li> <li>PARIS, CHAMPS ELYSEES</li>
-					<li>PARIS, BON MARCHE</li> <li>LONDON, NEW BOND STREET</li> <li>NYC, 57th STREET</li>
-					<li>TOKYO GINZA SHANGHAI, PLAZA 66</li>
-					<li>BEIJING, SHIN KONG PLACE</li> <li> GUANGZHOU,TAIKOO HUI</li>
-					<li> HONG KONG, LANDMARK </li>
-					<li>HONG KONG SAR, PEKING ROAD</li>
-				</ul>
-			</Grid>
-		</Section>
-	</>
-);
+			</Section>
+			<Section>
+				<H2>
+					<CenterText>Made to measure</CenterText>
+				</H2>
+				<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
+					<div>
+						<p>
+							Based on your personal measurement data, our in-studio will re-construct a bespoke mannequin
+							from our capsules looks. Your exclusive piece will then be crafted and altered
+							microscopically on this made-to-measure figure by our creatives, which would yield a
+							finished garment that you can be sure the piece sits perfectly on your body like your hand’s
+							in a glove.
+						</p>
+					</div>
+					<MainImg src={image3} />
+				</Grid>
+				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
+					<GridImg src={image4} style={{ objectPosition: 'bottom' }} />
+					<GridImg src={image5} />
+					<GridImg src={image6} style={{ objectPosition: 'right' }} />
+				</Grid>
+			</Section>
+
+			<Section>
+				<H2>
+					<CenterText>CHOICE OF FABRIC</CenterText>
+				</H2>
+				<Grid columns={['2fr', '1fr']} gap='30px'>
+					<MainImg src={image7} style={{ objectPosition: 'bottom right' }} />
+					<p>
+						As part of our sustainability agenda, we have influenced the approach of fabric blocking, with
+						the use of hand-made traditional textile prints, woven aso-oke, to fine soft wool, piqué, linen,
+						mesh cotton, lyocell, in making everyday affluence utilitarian looks.
+					</p>
+				</Grid>
+			</Section>
+
+			<Section>
+				<H2>
+					<CenterText>TAILORING IN STORE</CenterText>
+				</H2>
+				<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
+					<p>
+						Just as seen on the mannequin, an opportunity is offered in store for alteration of purchased
+						items, ensuring the highest standard finish for the product, with time-honored techniques that’s
+						adapted to your measurement.
+					</p>
+					<MainImg src={image8} />
+				</Grid>
+				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
+					<GridImg src={image9} />
+					<GridImg src={image10} style={{ objectPosition: 'right' }} />
+					<GridImg src={image11} />
+				</Grid>
+			</Section>
+
+			<Section>
+				<H2>
+					<CenterText>LIST OF BOUTIQUES</CenterText>
+				</H2>
+				<Grid columns={['2fr', '1fr']} gap='30px'>
+					<Grid columns={['1fr', '1fr']}>
+						<MainImg src={image12} />
+						<MainImg src={image14} />
+					</Grid>
+					<ul>
+						<li>PARIS,MONTAIGNE</li> <li>PARIS, CHAMPS ELYSEES</li>
+						<li>PARIS, BON MARCHE</li> <li>LONDON, NEW BOND STREET</li> <li>NYC, 57th STREET</li>
+						<li>TOKYO GINZA SHANGHAI, PLAZA 66</li>
+						<li>BEIJING, SHIN KONG PLACE</li> <li> GUANGZHOU,TAIKOO HUI</li>
+						<li> HONG KONG, LANDMARK </li>
+						<li>HONG KONG SAR, PEKING ROAD</li>
+					</ul>
+				</Grid>
+			</Section>
+			<AppointmentModal handleClose={() => setModal(false)} show={modal} />
+		</>
+	);
+};
 
 export default IndexPage;

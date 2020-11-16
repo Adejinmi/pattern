@@ -19,11 +19,6 @@ export default ({}) => (
 	<Grid columns={['1fr', '1fr']} gap='30px'>
 		<div>
 			<img src={man} />
-			<GridEqual count={2} gap='30px'>
-				<img src={man} />
-				<img src={man} />
-				<img src={man} />
-			</GridEqual>
 		</div>
 
 		<StickyContent>

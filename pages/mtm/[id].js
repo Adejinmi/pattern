@@ -1,5 +1,4 @@
 import React from 'react';
-import material from 'public/images/material.png';
 import { Grid, GridEqual } from 'components/Styles';
 import styled from 'styled-components';
 import man from 'public/images/image35.png';

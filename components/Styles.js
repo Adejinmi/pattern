@@ -44,7 +44,7 @@ export const CenterText = styled.div`
 	text-align: center;
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
 	background: #ffffff;
 	border: 1px solid #040404;
 	box-sizing: border-box;
@@ -52,4 +52,34 @@ export const Button = styled.div`
 	text-align: center;
 	padding: 10px;
 	font-size: 0.75rem;
+	cursor: pointer;
+`;
+export const ButtonBlack = styled(Button)`
+	background-color: #000;
+	border: 3px;
+	border-radius: 0px;
+	padding: 12px 25px;
+	color: #fff;
+	font-size: 0.95rem;
+	&:hover {
+		background-color: #fff;
+		color: black;
+		transition: 0.3s all;
+	}
+`;
+
+export const FlexCenterSpaceBetween = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: ${(props) => props.marginTop || '0px'};
+	flex-wrap: wrap;
+	flex-grow: 1;
+	@media (max-width: 1200px) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media (max-width: 960px) {
+		display: block;
+	}
 `;
