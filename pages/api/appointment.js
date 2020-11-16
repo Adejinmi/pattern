@@ -1,7 +1,10 @@
 // require('dotenv').config();
+import nextConnect from 'next-connect';
 const nodemailer = require('nodemailer');
 
-export default (req, res) => {
+const handler = nextConnect();
+
+handler.get(async (req, res) => {
 	const { firstName, lastName, email } = req.body;
 
 	const transporter = nodemailer.createTransport({
@@ -30,4 +33,6 @@ export default (req, res) => {
 			res.send('success');
 		}
 	});
-};
+});
+
+export default handler;
