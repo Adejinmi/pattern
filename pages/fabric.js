@@ -32,13 +32,13 @@ const Fabric = ({ fabrics }) => {
 };
 
 export async function getStaticProps() {
-	// const {
-	// 	data: { data },
-	// } = await axios.get('https://patternandproduce.herokuapp.com/api/fabrics');
+	const {
+		data: { data },
+	} = await axios.get('https://patternandproduce.herokuapp.com/api/fabrics');
 
 	return {
 		props: {
-			fabrics: [],
+			fabrics: data,
 		},
 	};
 }

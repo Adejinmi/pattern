@@ -1,38 +1,38 @@
-// // require('dotenv').config();
-// import nextConnect from 'next-connect';
-// const nodemailer = require('nodemailer');
+// require('dotenv').config();
+import nextConnect from 'next-connect';
+const nodemailer = require('nodemailer');
 
-// const handler = nextConnect();
+const handler = nextConnect();
 
-// handler.get(async (req, res) => {
-// 	const { firstName, lastName, email } = req.body;
+handler.post(async (req, res) => {
+	const { firstName, lastName, email } = req.body;
 
-// 	const transporter = nodemailer.createTransport({
-// 		service: 'gmail',
-// 		auth: {
-// 			user: 'joshuaoluikpe@gmail.com',
-// 			pass: '@mabelizu007$$',
-// 		},
-// 	});
+	const transporter = nodemailer.createTransport({
+		service: 'gmail',
+		auth: {
+			user: 'joshuaoluikpe@gmail.com',
+			pass: '@mabelizu007$$',
+		},
+	});
 
-// 	const mailOption = {
-// 		from: `joshuaoluikpe@gmail.com`,
-// 		to: `${email}`,
-// 		subject: `Testing`,
-// 		text: `
-//     ${firstName} wrote:
-//     ${lastName}
-//     `,
-// 	};
+	const mailOption = {
+		from: `joshuaoluikpe@gmail.com`,
+		to: `${email}`,
+		subject: `Testing`,
+		text: `
+    ${firstName} wrote:
+    ${lastName}
+    `,
+	};
 
-// 	transporter.sendMail(mailOption, (err, data) => {
-// 		if (err) {
-// 			console.log(err);
-// 		} else {
-// 			console.log(name, email, text);
-// 			res.send('success');
-// 		}
-// 	});
-// });
+	transporter.sendMail(mailOption, (err, data) => {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(name, email, text);
+			res.send('success');
+		}
+	});
+});
 
-// export default handler;
+export default handler;
