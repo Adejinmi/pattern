@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "../../utils/database";
+import { connect } from "../../../utils/database";
 
 export default async function (req: NextApiRequest, res: NextApiResponse){
     console.log(req.body);
