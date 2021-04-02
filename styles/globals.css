@@ -3,11 +3,16 @@
 	src: url(/fonts/aristotelica_light.ttf);
 }
 
+@font-face {
+	font-family: futurabk;
+	src: url(/fonts/futurabk.ttf);
+}
+
 html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: AristotelicaLight;
+	font-family: futurabk;
 }
 
 a {
@@ -31,4 +36,7 @@ p {
 	position: absolute;
 	color: red;
 	margin-bottom: 15px;
+}
+ul{
+	font-family: futurabk;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { CenterText, Grid, Button, H2, Section } from '../components/Styles';
 import AppointmentModal from 'components/AppointmentModal';
+import NumberFormat from 'react-number-format';
 import image1 from 'public/images/landingImg.jpeg';
 import image3 from 'public/images/madeToMeasure.jpeg';
 import image4 from 'public/images/measure1.jpeg';
@@ -28,8 +29,9 @@ const MainImg = styled.img`
 	object-fit: cover;
 `;
 
+
 const IndexPage = () => {
-	const [modal, setModal] = React.useState(true);
+	const [modal, setModal] = React.useState(false);
 
 	return (
 		<>
@@ -42,7 +44,7 @@ const IndexPage = () => {
 					<div>
 						<p>
 							The Pattern & Produce studios is passionately committed to developing exceptional skilled
-							workforce, for the purpose of sustainable, utilitarian, tribal, and affluence wearables, in
+							workforce, for the purpose of sustainable, <i>utilitarian, tribal</i>, and <i>affluence</i> wearables, in
 							the bespoke and ready-to-wear line.
 							<br /> Our design model is fulcrum on people, planet and profit.
 						</p>
@@ -117,7 +119,8 @@ const IndexPage = () => {
 					</Grid>
 					<ul>
 						<li>PARIS,MONTAIGNE</li> <li>PARIS, CHAMPS ELYSEES</li>
-						<li>PARIS, BON MARCHE</li> <li>LONDON, NEW BOND STREET</li> <li>NYC, 57th STREET</li>
+						<li>PARIS, BON MARCHE</li> <li>LONDON, NEW BOND STREET</li> 
+						<li>NYC, 57th STREET</li>
 						<li>TOKYO GINZA SHANGHAI, PLAZA 66</li>
 						<li>BEIJING, SHIN KONG PLACE</li> <li> GUANGZHOU,TAIKOO HUI</li>
 						<li> HONG KONG, LANDMARK </li>

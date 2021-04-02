@@ -31,6 +31,12 @@ export const FormBlock = styled.div`
 	}
 `;
 
+export const Button = styled.button`
+	padding: 25px;
+	text-align: center;
+`;
+
+
 export const Input = styled.input`
 	position: relative;
 	display: block;
@@ -133,7 +139,7 @@ export default ({}) => (
 			<h3>REGISTER</h3>
 			<FormBlock>
 				<Question>
-					<h3>Personal Details</h3>
+					<h3>Personal Details </h3>
 					<div>
 						<Input placeholder='Full Name' />
 						<Input placeholder='Date of Birth' />
@@ -290,6 +296,8 @@ export default ({}) => (
 					<Input placeholder='Mobile Number' />
 					<Input placeholder='Address' />
 				</Question>
+
+			<button style={{textAlign:'center', margin:'auto'}}>Submit</button>	
 			</FormBlock>
 		</div>
 	</Wrapper>
