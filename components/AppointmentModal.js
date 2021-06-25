@@ -162,7 +162,7 @@ const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
 			setLoading(true);
 			const {
 				data: { data },
-			} = await axios.post(`http://patternandproduce.herokuapp.com/api/appointment.js`, values);
+			} = await axios.post(`https://patternandproduce.herokuapp.com/api/appointment.js`, values);
 			setLoading(false);
 		},
 	});
