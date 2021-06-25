@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 const handler = nextConnect();
 
 handler.post(async (req, res) => {
-	const { firstName, lastName, email } = req.body;
+	const { firstName, lastName, email, phoneNumber, address, message, appointmentType} = req.body;
 
 
 	const transporter = nodemailer.createTransport({
@@ -19,10 +19,15 @@ handler.post(async (req, res) => {
 	const mailOption = {
 		from: `appointment@patternandproduce.com`,
 		to: `${email}`,
-		subject: `Testing`,
+		subject: `New Appointment`,
 		text: `
-    ${firstName} wrote:
-    ${lastName}
+    First Name:	${firstName}
+	Last Name:	${lastName}
+	Email Address: ${email}
+	Phone Number: ${phoneNumber}
+	Address: ${address}
+	Message: ${message}
+	Appointment Type: ${appointmentType}
     `,
 	};
 
