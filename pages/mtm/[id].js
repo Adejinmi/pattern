@@ -61,7 +61,7 @@ export async function getServerSideProps({ params }) {
 	const id = params.id;
 	const {
 		data: { data },
-	} = await axios.get(`http://localhost:3000/api/mtm/${id}`);
+	} = await axios.get(`https://patternandproduce.herokuapp.com/api/mtm/${id}`);
 
 	// By returning { props: posts }, the Blog component
 	// will receive `posts` as a prop at build time
