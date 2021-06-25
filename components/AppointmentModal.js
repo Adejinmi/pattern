@@ -162,7 +162,7 @@ const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
 			setLoading(true);
 			const {
 				data: { data },
-			} = await axios.post(`https://patternandproduce.herokuapp.com/api/appointment`, values);
+			} = await axios.post(`http://localhost:5000`, values);
 			setLoading(false);
 		},
 	});
@@ -197,14 +197,14 @@ const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
 					{!hideClose && <FiX onClick={modalCloseHandler} size='1rem' />}
 				</FlexCenterSpaceBetween>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
-					cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
-					Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget
-					nulla.
+				To enjoy our traditional sartorial look, appointments for Bespoke, Made To Measure or Made To Order services can be made by contacting +234 903 990 2994 or kindly request an appointment by filling the form below. 
+
 				</p>
 				<p>
-					Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-					Curabitur sodales ligula in libero. Sed dignissim{' '}
+						
+				</p>
+				<p>
+				This is just a request form and it will only be treated based on the information given as regards our Bespoke, Made To Measure or Made To Order services.
 				</p>
 				<div style={{ marginTop: '25px' }}>
 					<form onSubmit={handleSubmit}>

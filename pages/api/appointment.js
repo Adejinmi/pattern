@@ -7,16 +7,17 @@ const handler = nextConnect();
 handler.post(async (req, res) => {
 	const { firstName, lastName, email } = req.body;
 
+
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
 			user: 'adejinmisamuel1@gmail.com',
-			pass: 'Sammyaddy@1234',
+			pass: 'ade12345',
 		},
 	});
 
 	const mailOption = {
-		from: `joshuaoluikpe@gmail.com`,
+		from: `appointment@patternandproduce.com`,
 		to: `${email}`,
 		subject: `Testing`,
 		text: `

@@ -1,17 +1,47 @@
 import React from 'react';
 import { CenterText, GridEqual } from '../components/Styles';
-import man from 'public/images/image35.png';
-import Product from 'components/Product';
+import styled from 'styled-components';
+import axios from 'axios';
 
-export default () => {
-	const [products] = React.useState(new Array(7).fill(' '));
+export const MaterialWrapper = styled.a`
+	position: relative;
+	text-align: center;
+	display: block;
+	p {
+		margin-top: 15px;
+		font-family: 'Domine', serif;
+	}
+`;
+const Material = ({ fabric }) => (
+	<MaterialWrapper href={`herbadashrey/${fabric?.number}`}>
+		<img src={fabric.imgUrl} />
+		<p style={{textAlign:'left', fontSize:'15px', fontWeight: 'bold', marginBottom:'0px'}}>{fabric.title}</p>
+		<p style={{textAlign:'left', fontSize:'12px', marginTop:'0px'}}>{fabric.subtitle}</p>
+	</MaterialWrapper>
+);
+
+const Fabric = ({ fabrics }) => {
 	return (
 		<>
-			<GridEqual count={3} gap='40px'>
-				{products.map((product, i) => (
-					<Product img={man} key={i} />
+			<GridEqual count={3} style={{ marginTop: '60px' }} gap={'40px'}>
+				{fabrics.map((fabric, i) => (
+					<Material key={i} fabric={fabric} />
 				))}
 			</GridEqual>
 		</>
 	);
 };
+
+export async function getStaticProps() {
+	const {
+		data:{data},
+	} = await axios.get('http://localhost:3000/herbadashrey');
+
+	return {
+		props: {
+			fabrics: data
+		},
+	};
+}
+
+export default Fabric;

@@ -15,6 +15,15 @@ import image10 from 'public/images/tailorstore2.jpeg';
 import image11 from 'public/images/tailorstore3.jpeg';
 import image12 from 'public/images/boutique.jpeg';
 import image14 from 'public/images/image14.jpeg';
+import landimg from 'public/images/2_54.jpeg';
+import image15 from 'public/images/PP B&W-2.jpg';
+import image16 from 'public/images/PP B&W-12.jpg';
+import image17 from 'public/images/PP B&W-41.jpg';
+import image18 from 'public/images/PP B&W-56.jpg';
+import image19 from 'public/images/PP B&W-48.jpg';
+import image20 from 'public/images/PP B&W-3.jpg';
+import image21 from 'public/images/PP B&W-10.jpg';
+import image22 from 'public/images/PP B&W-20.jpg';
 
 const GridImg = styled.img`
 	height: 414px;
@@ -40,7 +49,7 @@ const IndexPage = () => {
 					<CenterText>The Stuido</CenterText>
 				</H2>
 				<Grid columns={['2fr', '1fr']} gap='30px' isReverse>
-					<MainImg src={image1} />
+					<MainImg src={landimg} />
 					<div>
 						<p>
 							The Pattern & Produce studios is passionately committed to developing exceptional skilled
@@ -66,12 +75,12 @@ const IndexPage = () => {
 							in a glove.
 						</p>
 					</div>
-					<MainImg src={image3} />
+					<MainImg src={image8} />
 				</Grid>
 				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
-					<GridImg src={image4} style={{ objectPosition: 'bottom' }} />
-					<GridImg src={image5} />
-					<GridImg src={image6} style={{ objectPosition: 'right' }} />
+					<GridImg src={image17} style={{ objectPosition: '50% 20%' }} />
+					<GridImg src={image16} style={{objectPosition: 'center -40px'}} />
+					<GridImg src={image15} style={{ objectPosition: 'top' }} />
 				</Grid>
 			</Section>
 
@@ -80,7 +89,7 @@ const IndexPage = () => {
 					<CenterText>CHOICE OF FABRIC</CenterText>
 				</H2>
 				<Grid columns={['2fr', '1fr']} gap='30px'>
-					<MainImg src={image7} style={{ objectPosition: 'bottom right' }} />
+					<MainImg src={image1} style={{ objectPosition: 'bottom right' }} />
 					<p>
 						As part of our sustainability agenda, we have influenced the approach of fabric blocking, with
 						the use of hand-made traditional textile prints, woven aso-oke, to fine soft wool, piqué, linen,
@@ -99,34 +108,24 @@ const IndexPage = () => {
 						items, ensuring the highest standard finish for the product, with time-honored techniques that’s
 						adapted to your measurement.
 					</p>
-					<MainImg src={image8} />
+					<MainImg src={image18} style={{objectPosition: '10% 80%'}} />
 				</Grid>
 				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
-					<GridImg src={image9} />
-					<GridImg src={image10} style={{ objectPosition: 'right' }} />
-					<GridImg src={image11} />
+					<GridImg src={image20} style={{objectFit: 'cover', objectPosition:'center -190px'}} />
+					<GridImg src={image22} style={{ objectPosition: 'center', }} />
+					<GridImg src={image21} style={{objectPosition: 'center 1px'}} />
 				</Grid>
 			</Section>
 
 			<Section>
 				<H2>
-					<CenterText>LIST OF BOUTIQUES</CenterText>
+					<CenterText>STUDIO LOCATION</CenterText>
+					<p style={{fontSize:'16px', textAlign:'center'}}>LAGOS, YABA</p>
 				</H2>
-				<Grid columns={['2fr', '1fr']} gap='30px'>
-					<Grid columns={['1fr', '1fr']}>
-						<MainImg src={image12} />
-						<MainImg src={image14} />
+					<Grid columns={['2fr']}>
+						<MainImg src={image12} style={{objectFit:'contain'}}  />
 					</Grid>
-					<ul>
-						<li>PARIS,MONTAIGNE</li> <li>PARIS, CHAMPS ELYSEES</li>
-						<li>PARIS, BON MARCHE</li> <li>LONDON, NEW BOND STREET</li> 
-						<li>NYC, 57th STREET</li>
-						<li>TOKYO GINZA SHANGHAI, PLAZA 66</li>
-						<li>BEIJING, SHIN KONG PLACE</li> <li> GUANGZHOU,TAIKOO HUI</li>
-						<li> HONG KONG, LANDMARK </li>
-						<li>HONG KONG SAR, PEKING ROAD</li>
-					</ul>
-				</Grid>
+				
 			</Section>
 			<AppointmentModal handleClose={() => setModal(false)} show={modal} />
 		</>

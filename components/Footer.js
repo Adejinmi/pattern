@@ -2,6 +2,7 @@ import React from 'react';
 import { FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
 import styled from 'styled-components';
 import axios from 'axios';
+import { isConstructSignatureDeclaration } from 'typescript';
 
 
 const Wrapper = styled.nav`
@@ -106,22 +107,30 @@ function openF(){
 function openTw(){
 	window.open('https://twitter.com/PatternProduce');
 }
-let axiosConfig = {
+/*let axiosConfig = {
 	headers: {
 		'Content-Type': 'application/json;charset=UTF-8',
 		"Access-Control-Allow-Origin": "*",
 	}
-  };
+  };*/
 async function sendMail(mail){
-	const data = JSON.stringify(mail);
-	const url ='https://patternandproduce.herokuapp.com/api/newsletter/create.ts';
-const options = {
-  method: 'POST',
-  headers: {'content-type': 'application/json'},
-  data,
-  url,
-};
-axios(options);
+	const data = mail;
+	const url ='http://localhost:5000/newsletter';
+	axios.post(url, {
+		data
+	  })
+	  .then((res) => {
+		if (res.data=='Inserted Succesfully'){
+			document.getElementById('wait').innerHTML='Thanks for subscribing!'
+			document.getElementById('subscribe').value=''
+			document.getElementById('subscribe').disabled='false'
+			document.getElementById('butt').disabled='false'
+		}
+	  }, (error) => {
+			document.getElementById('wait').innerHTML='Something went wrong, Try Again'
+			document.getElementById('subscribe').disabled=false
+			document.getElementById('butt').disabled=false
+	  });
 
 }
 function subnew(){
@@ -129,10 +138,14 @@ function subnew(){
 	var loc = email.lastIndexOf('@');
 	var loc2 = email.lastIndexOf('.');
 	if (loc2 > loc){
+		document.getElementById('subscribe').disabled='true'
+		document.getElementById('wait').style.display='block'
+		document.getElementById('wait').innerHTML='Please wait........'
 		sendMail(email);
 	}
 	else{
-		alert("Error!"+"\n"+"Check your email address and try again");
+		document.getElementById('wait').innerHTML='Check your e-mail address and try again'
+		document.getElementById('wait').style.display='block'
 	}
 }
 
@@ -141,13 +154,13 @@ export default () => (
 		<div>
 			<p>Newsletter</p>
 				<Input placeholder='Your email address' id='subscribe' onSubmit={subnew}/>
-				<Subbut onClick={subnew}>OK</Subbut>
-			
+				<Subbut id='butt' onClick={subnew}>OK</Subbut>
+			<p id='wait' style={{fontSize:'13px', color:'dimgray', display:'none'}}>Please wait........</p>
 		</div>
 		<List>
 			<li style={{cursor: "pointer"}}>FAQ</li>
 			<li style={{cursor: "pointer"}}>Legal Terms</li>
-			<li style={{cursor: "pointer"}}>Contact Us</li>
+			<li style={{cursor: "pointer"}}><a href='contact'>Contact Us</a></li>
 		</List>
 		<div>
 			<p>Follow us</p>
