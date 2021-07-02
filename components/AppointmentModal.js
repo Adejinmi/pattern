@@ -8,6 +8,7 @@ import Radio from './form/Radio';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
+import { convertCompilerOptionsFromJson } from 'typescript';
 
 export const appointmentSchema = yup.object({
 	firstName: yup.string().required('First name is required'),
@@ -163,6 +164,7 @@ const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
 			const {
 				data: { data },
 			} = await axios.post(`https://patternandproduce.herokuapp.com/api/appointment`, values);
+			
 			setLoading(false);
 		},
 	});

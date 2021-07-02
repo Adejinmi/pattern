@@ -8,14 +8,14 @@
 import nextConnect from 'next-connect';
 import middleware from '../../../middleware/database';
 
-const handler = nextConnect();
+	const handler = nextConnect();
 
-handler.use(middleware);
+	handler.use(middleware);
 
-handler.get(async (req, res) => {
-	let data = await req.db.collection('fabric').find().toArray();
-	res.status(200).json({ data, success: true });
-});
+	handler.get(async (req, res) => {
+		let data = await req.db.collection('fabric').find().toArray();
+		res.status(200).json({ data, success: true });
+	});
 
 
 export default handler;

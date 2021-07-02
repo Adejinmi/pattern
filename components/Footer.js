@@ -115,7 +115,7 @@ function openTw(){
   };*/
 async function sendMail(mail){
 	const data = mail;
-	const url ='http://localhost:5000/newsletter';
+	const url ='https://patternandproduce.herokuapp.com/api/newsletter';
 	axios.post(url, {
 		data
 	  })
@@ -123,8 +123,8 @@ async function sendMail(mail){
 		if (res.data=='Inserted Succesfully'){
 			document.getElementById('wait').innerHTML='Thanks for subscribing!'
 			document.getElementById('subscribe').value=''
-			document.getElementById('subscribe').disabled='false'
-			document.getElementById('butt').disabled='false'
+			document.getElementById('subscribe').disabled=false
+			document.getElementById('butt').disabled=false
 		}
 	  }, (error) => {
 			document.getElementById('wait').innerHTML='Something went wrong, Try Again'
@@ -159,6 +159,7 @@ export default () => (
 		</div>
 		<List>
 			<li style={{cursor: "pointer"}}>FAQ</li>
+			<li style={{cursor: "pointer"}}><a href='services'>Service Options</a></li>
 			<li style={{cursor: "pointer"}}>Legal Terms</li>
 			<li style={{cursor: "pointer"}}><a href='contact'>Contact Us</a></li>
 		</List>

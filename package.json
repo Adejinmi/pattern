@@ -4,9 +4,8 @@
 	"private": true,
 	"proxy": "https://patternandproduce.herokuapp.com/api/",
 	"engines": {
-    		"node": "14.15.4"
-  		},
-	
+		"node": "14.15.4"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -18,11 +17,13 @@
 		"@zeit/next-css": "^1.0.1",
 		"@zeit/next-sass": "^1.0.1",
 		"axios": "^0.20.0",
+		"cors": "^2.8.5",
 		"formik": "^2.2.5",
 		"mongodb": "^3.6.2",
 		"next": "9.5.3",
 		"next-connect": "^0.9.0",
 		"next-images": "^1.4.1",
+		"nextjs-cors": "^1.0.5",
 		"nextjs-fonts": "^0.22.0",
 		"nodemailer": "^6.4.16",
 		"react": "16.13.1",
