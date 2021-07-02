@@ -39,7 +39,7 @@ class Fabric extends Component{
 		return (
 			<>
 				<div style={{padding:'10px 15% 10px 15%'}}>
-                <div style={{width:'100%', textAlign:'center', marginTop:'50px'}}><p style={{fontSize:'20px',textAlign:'center', fontWeight:'bold'}}>SERVICES OPTIONS for Kaftan, Jackets, Shirpel, Pants, Shorts</p>
+                <div style={{width:'100%', textAlign:'center', marginTop:'50px'}}><p style={{fontSize:'22px',textAlign:'center', textDecoration:'underline'}}> Kaftan, Pants, Shorts</p>
                     <div style={{textAlign:'left', padding: '20px', margin:'auto', width: 'auto'}}>
                         <p style={{fontWeight:'bold'}}>PRIME MORNING <span style={{color:'red'}}> (40% extra of Price Point)</span></p>
                         <ul>
@@ -75,7 +75,7 @@ class Fabric extends Component{
                 </div>
 			
             
-                <div style={{width:'100%', textAlign:'center', marginTop:'50px'}}><p style={{fontSize:'20px',textAlign:'center', fontWeight:'bold'}}>SERVICES OPTIONS for Jacket, Shirpel, Agbada</p>
+                <div style={{width:'100%', textAlign:'center', marginTop:'50px'}}><p style={{fontSize:'22px',textAlign:'center', textDecoration:'underline'}}>Jacket, Shirpel, Agbada</p>
                     <div style={{textAlign:'left', padding: '20px', margin:'auto', width: 'auto'}}>
                         <p style={{fontWeight:'bold'}}>CLOSED LOOP</p>
                         <ul>
@@ -93,19 +93,11 @@ class Fabric extends Component{
                 </div>
 
                 <div>
+                    <p style={{textDecoration:'underline', textAlign:'center', fontSize:'22px', marginBelow:'0px'}}>Price Points</p>
                     <img src={image}></img>
                 </div>
                 
-                <div style={{display:'flex', flexDirection:'row', flexWrap:'wrap', marginTop:'60px'}}>
-                   <div style={{width:'50%'}}>
-                       <p style={{textDecoration:'underline', fontWeight:'bold'}}>Call/WhatsApp</p>
-                       <p>+234 903 990 2994</p>
-                   </div>
-                   <div style={{width:'50%'}}>
-                   <p style={{textDecoration:'underline', fontWeight:'bold'}}>email</p>
-                   <p>tailormade@patternandproduce.com</p>
-                   </div>
-                </div>
+                
                 </div>
             </>
             
