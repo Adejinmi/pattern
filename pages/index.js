@@ -20,7 +20,7 @@ import image15 from 'public/images/PP B&W-2.jpg';
 import image16 from 'public/images/PP B&W-12.jpg';
 import image17 from 'public/images/PP B&W-41.jpg';
 import image18 from 'public/images/PP B&W-56.jpg';
-import image19 from 'public/images/bottom.jpg';
+import image19 from 'public/images/bottom.jpeg';
 import image20 from 'public/images/PP B&W-3.jpg';
 import image21 from 'public/images/PP B&W-10.jpg';
 import image22 from 'public/images/PP B&W-20.jpg';
