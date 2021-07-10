@@ -119,7 +119,7 @@ const IndexPage = () => {
 
 			<Section>
 				<H2>
-					<CenterText>STUDIO LOCATION</CenterText>
+					<CenterText>STUDIO</CenterText>
 					<p style={{fontSize:'16px', textAlign:'center'}}>YABA, LAGOS</p>
 				</H2>
 					<Grid columns={['3fr']}>
