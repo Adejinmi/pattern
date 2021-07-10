@@ -142,7 +142,7 @@ const CloseButton = styled.button`
 	}
 `;
 
-const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
+const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 	const [showModal, setShowModal] = React.useState(show);
 	const [showEntrance, setShowEntrance] = React.useState(show);
 	const [showExit, setShowExit] = React.useState(!show);
@@ -163,8 +163,9 @@ const Modal = ({ handleClose, show = false, title, style, hideClose }) => {
 			setLoading(true);
 			const {
 				data: { data },
-			} = await axios.post(`https://patternandproduce.herokuapp.com/api/appointment`, values);
+			} = await axios.post(`https'://patternandproduce.herokuapp.com/api/appointment`, values);
 			
+
 			setLoading(false);
 		},
 	});

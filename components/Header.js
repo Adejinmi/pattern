@@ -110,7 +110,7 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 					<a className={router.pathname === '/fabric' ? 'active' : ''}>FABRIC ARTICLES</a>
 				</Link>
 				<Link href='/herbadashrey'>
-					<a className={router.pathname === '/herbadashrey' ? 'active' : ''}>HERBADASHERY</a>
+					<a className={router.pathname === '/herbadashrey' ? 'active' : ''}>HABERDASHERY</a>
 				</Link>
 				<Link href='/cmt'>
 					<a className={router.pathname === '/cmt' ? 'active' : ''}>CMT MASTERY</a>
@@ -119,7 +119,7 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 			<NavMobile left={left}>
 				{isOpen && (
 					<FiX onClickCapture={() => handleNavBar('closed')} color='#000' style={{ marginRight: '15px' }} />
-				)}
+				)}	
 				<Link href='/mtm'>
 					<a className={router.pathname === '/mtm' ? 'active' : ''}>MTM ARTICLES</a>
 				</Link>

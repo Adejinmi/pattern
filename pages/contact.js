@@ -11,14 +11,22 @@ const FormCont = styled.div`
 	& input{
 		padding: 13px;
 		outline: none;
-		border: none;
-		font-size: 18px;
-		width: 100%;
+		border: 1px solid lightgrey;
+		font-size: 14px;
+		width: 350px;
 	}
 	& span{
 		position: absolute;
 		padding: 13px;
 		color: grey;
+	}
+	& select{
+		padding: 13px;
+		outline: none;
+		border: 1px solid lightgrey;
+		border-radius: 5px;
+		font-size: 14px;
+		width: 350px;
 	}
 
 `
@@ -54,10 +62,18 @@ class Fabric extends Component{
 					<p style={{fontWeight:'bold', fontSize:'14px'}}>WRITE US</p>
 					<p style={{fontSize:'12px', color:'grey'}}>* All fields marked with a star are required</p>
 
-					<form style={{display:'grid', gridTemplateColumns:'1fr 1fr', alignItems:'start', gridGap:'10px'}}>
-
-
-						
+					<form style={{display:'flex', flexDirection:'row', flexWrap:'wrap'}}>
+						<select style={{}}>
+							<option>*title</option>
+							<option value='Mr'>Mr</option>
+							<option value='Mrs'>Mrs</option>
+						</select>
+						<input type='text' placeholder='*Last Name'></input>
+						<input type='text' placeholder='*First Name'></input>
+						<input type='text' placeholder='*Country '></input>
+						<input type='text' placeholder='*Language'></input>
+						<input type='email' placeholder='*Email Address'></input>
+						<input type='text' placeholder='Telephone'></input>
 					</form>
 	
 	

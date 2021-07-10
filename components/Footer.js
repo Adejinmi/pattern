@@ -2,7 +2,9 @@ import React from 'react';
 import { FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
 import styled from 'styled-components';
 import axios from 'axios';
+import Link from 'next/link';
 import { isConstructSignatureDeclaration } from 'typescript';
+import { BrowserRoute as Router, Route, Switch } from 'react-router-dom';
 
 
 const Wrapper = styled.nav`
@@ -158,10 +160,10 @@ export default () => (
 			<p id='wait' style={{fontSize:'13px', color:'dimgray', display:'none'}}>Please wait........</p>
 		</div>
 		<List>
-			<li style={{cursor: "pointer"}}>FAQ</li>
-			<li style={{cursor: "pointer"}}><a href='services'>Service Options</a></li>
-			<li style={{cursor: "pointer"}}>Legal Terms</li>
-			<li style={{cursor: "pointer"}}><a href='contact'>Contact Us</a></li>
+			<li><Link href='/faq'>FAQ</Link></li>
+			<li><Link href='/services'>Service Options</Link></li>
+			<li><Link href='/terms'>Legal Terms</Link></li>
+			<li><Link href='/contact'>Contact Us</Link></li>
 		</List>
 		<div>
 			<p>Follow us</p>

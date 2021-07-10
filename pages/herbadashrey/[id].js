@@ -29,7 +29,7 @@ export const FabricList = styled.ul`
 `;
 
 const Material = ({ fabric }) => (
-		<li style={{textAlign:'left', fontSize:'14px', marginTop:'5px'}}>{fabric}</li>
+		<li style={{textAlign:'justify', fontSize:'14px', marginTop:'5px'}}>{fabric}</li>
 
 );
 
@@ -41,10 +41,17 @@ const Fabric = ({ fabric }) => {
 						<p style={{fontSize:'30px', fontWeight:'bold'}}>{fabric.title}</p>
 						<p style={{color:'dimgray'}}>{fabric.subtitle}</p>
 					<div style={{backgroundColor:'#F0F0F0', width:'500px', padding:'30px', marginTop:'40px'}}>
-						<p style={{fontSize:'15.5px', fontWeight:'bold', letterSpacing:'0.4px', marginBottom:'10px'}}>DESCRIPTION</p>
-						<p style={{fontSize:'15px', letterSpacing:'0.1px', textAlign:'justify'}}>{fabric.description}</p>
-					<ul style={{marginTop:'20px'}}>
-						{fabric.subdescription.map((fabric, i) => (
+					<p style={{fontSize:'15.5px', fontWeight:'bold', letterSpacing:'0.4px', marginBottom:'0px'}}>HIGHLIGHTS</p>	
+					
+					<ul style={{marginTop:'5px'}}>
+						{fabric.highlights.map((fabric, i) => (
+							<Material key={i} fabric={fabric} />
+						))}
+					</ul>
+
+					<p style={{fontSize:'15.5px', fontWeight:'bold', letterSpacing:'0.4px', marginTop:'30px'}}>DESCRIPTION</p>
+					<ul style={{marginTop:'5px', textAlign:'justify'}}>
+						{fabric.description.map((fabric, i) => (
 							<Material key={i} fabric={fabric} />
 						))}
 					</ul>
