@@ -103,7 +103,7 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 				)}
 			</Menu>
 			<Nav>
-			<Link href='/'>
+				<Link href='/'>
 					<a className={router.pathname === '/index' ? 'active' : ''}>HOME</a>
 				</Link>
 

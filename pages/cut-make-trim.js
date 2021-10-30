@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 // import Radio from 'components/form/Radio';
-export const Wrapper = styled.div`
+export const WWrapper = styled.div`
 	@font-face{
 		font-family: futura;
 		src: url('../public/fonts/futurabk.ttf');
@@ -298,7 +298,7 @@ class Form extends Component{
 
 	render(){
 		return(
-			<Wrapper>
+			<WWrapper>
 				<Cont>
 					<div style={{position:'absolute', width:'100%', left:'0', backgroundColor:'dimgray', padding: '10px'}}>
 						<h4>REGISTER WITH US</h4>
@@ -472,7 +472,7 @@ class Form extends Component{
 
 					</form>
 				</Cont>
-			</Wrapper>
+			</WWrapper>
 		)
 
 	}
