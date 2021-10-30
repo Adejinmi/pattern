@@ -10,11 +10,11 @@ export const Wrapper = styled.div`
 	width:100%;
 `;
 
-const media = {
+export const media = {
 	mobile: '@media(max-width: 800px)',
 	mobile2: '@media(max-width: 600px)'
 }
-const butt={
+export const butt={
 	backgroundColor: 'dimgray',
 	color: 'white',
 	boxShadow: '1px 2px 4px rgba(0, 0, 0,0.5)',
@@ -91,7 +91,7 @@ export const E = styled.p`
 	padding: 5px;
 `;
 
-const Que = styled.div`
+export const Que = styled.div`
 	margin: 50px 40px;
 	text-align: left;
 	padding-left: 50px;
@@ -125,7 +125,7 @@ const Que = styled.div`
 		padding-left: 10px;
 	}
 `
-const Quee = styled.div`
+export const Quee = styled.div`
 	margin: 50px 40px;
 	text-align: left;
 	padding-left: 50px;
@@ -156,7 +156,7 @@ const Quee = styled.div`
 	}
 
 `
-const Qu = styled.div`
+export const Qu = styled.div`
 	display: grid;
 	grid-template-columns: 350px 350px;
 	justify-content: space-evenly;
