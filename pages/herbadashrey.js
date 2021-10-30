@@ -15,8 +15,7 @@ export const MaterialWrapper = styled.a`
 const Material = ({ fabric }) => (
 	<MaterialWrapper href={`herbadashrey/${fabric?.number}`}>
 		<img src={fabric.imgUrl} />
-		<p style={{textAlign:'left', fontSize:'15px', fontWeight: 'bold', marginBottom:'0px'}}>{fabric.title}</p>
-		<p style={{textAlign:'left', fontSize:'12px', marginTop:'0px'}}>{fabric.subtitle}</p>
+		<p style={{textAlign:'left', fontSize:'15px', fontWeight: 'bold', marginBottom:'0px', textTransform:'uppercase'}}>{fabric.title}</p>
 	</MaterialWrapper>
 );
 

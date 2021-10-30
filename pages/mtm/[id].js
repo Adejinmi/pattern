@@ -28,21 +28,32 @@ export const FabricList = styled.ul`
 	}
 `;
 
+const Div=styled.div`
+	@media(max-width:960px){
+		margin-top: 40px;
+	}
+	& div{
+		width: 500px;
+		@media(max-width:960px){
+				width: 100%;
+		}
+	}
+`
+
 const Material = ({ fabric }) => (
-		<li style={{textAlign:'left', fontSize:'14px', marginTop:'5px'}}>{fabric}</li>
+		<li style={{textAlign:'left', fontSize:'17px', marginTop:'10px'}}>{fabric}</li>
 
 );
 
 const Fabric = ({ fabric }) => {
 	return (
-		<Grid columns={['1fr', '1fr']} gap='50px' style={{ marginTop: '60px', alignItems:'start'}}>
+		<Grid columns={['1fr', '1fr']} gap='50px' style={{ marginTop: '60px', alignItems:'start'}} isH>
 			<img src={fabric.imgUrl} />
-			<div style={{objectPosition:'top', marginTop:'0'}}>
-						<p style={{fontSize:'30px', fontWeight:'bold'}}>{fabric.title}</p>
-						<p style={{color:'dimgray'}}>{fabric.subtitle}</p>
-					<div style={{backgroundColor:'#F0F0F0', width:'500px', padding:'30px', marginTop:'40px'}}>
-						<p style={{fontSize:'15.5px', fontWeight:'bold', letterSpacing:'0.4px', marginBottom:'10px'}}>DESCRIPTION</p>
-						<p style={{fontSize:'15px', letterSpacing:'0.1px', textAlign:'justify'}}>{fabric.description}</p>
+			<Div>
+						<p style={{fontSize:'20px', fontWeight:'bold', marginBottom:'0px'}}>{fabric.title}</p>
+					<div style={{marginTop:'20px'}}>
+						<p style={{fontSize:'17x', fontWeight:'bold', letterSpacing:'0.4px', marginBottom:'20px'}}>DESCRIPTION</p>
+						<p style={{fontSize:'17px', letterSpacing:'0.1px', textAlign:'justify'}}>{fabric.description}</p>
 					<ul style={{marginTop:'20px'}}>
 						{fabric.subdescription.map((fabric, i) => (
 							<Material key={i} fabric={fabric} />
@@ -50,7 +61,7 @@ const Fabric = ({ fabric }) => {
 					</ul>
 						
 					</div>
-			</div>
+			</Div>
 		</Grid>
 	);
 };

@@ -39,6 +39,7 @@ const Input = styled.input`
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 	box-sizing: border-box;
+	text-align: left;
 	&:focus {
 		border: 1px solid #201a56;
 		outline: none;

@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Nav = styled.nav`
-	max-width: 600px;
+	max-width: 800px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
@@ -103,8 +103,12 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 				)}
 			</Menu>
 			<Nav>
+			<Link href='/'>
+					<a className={router.pathname === '/index' ? 'active' : ''}>HOME</a>
+				</Link>
+
 				<Link href='/mtm'>
-					<a className={router.pathname === '/mtm' ? 'active' : ''}>MTM ARTICLES</a>
+					<a  className={router.pathname === '/mtm' ? 'active' : ''}>MADE-TO-MEASURE</a>
 				</Link>
 				<Link href='/fabric'>
 					<a className={router.pathname === '/fabric' ? 'active' : ''}>FABRIC ARTICLES</a>
@@ -112,14 +116,17 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 				<Link href='/herbadashrey'>
 					<a className={router.pathname === '/herbadashrey' ? 'active' : ''}>HABERDASHERY</a>
 				</Link>
-				<Link href='/cmt'>
-					<a className={router.pathname === '/cmt' ? 'active' : ''}>CMT MASTERY</a>
+				<Link href='/cut-make-trim'>
+					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CUT-MAKE-TRIM	</a>
 				</Link>
 			</Nav>
 			<NavMobile left={left}>
 				{isOpen && (
 					<FiX onClickCapture={() => handleNavBar('closed')} color='#000' style={{ marginRight: '15px' }} />
 				)}	
+				<Link href='/'>
+					<a className={router.pathname === '/index' ? 'active' : ''}>HOME</a>
+				</Link>
 				<Link href='/mtm'>
 					<a className={router.pathname === '/mtm' ? 'active' : ''}>MTM ARTICLES</a>
 				</Link>
@@ -129,8 +136,8 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 				<Link href='/herbadashrey'>
 					<a className={router.pathname === '/herbadashrey' ? 'active' : ''}>HERBADASHERY</a>
 				</Link>
-				<Link href='/cmt'>
-					<a className={router.pathname === '/cmt' ? 'active' : ''}>CMT MASTERY</a>
+				<Link href='/cut-make-trim'>
+					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CMT MASTERY</a>
 				</Link>
 			</NavMobile>
 		</Wrapper>

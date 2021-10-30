@@ -6,11 +6,22 @@ export const Grid = styled.div`
 	grid-template-columns: ${(props) => (props.columns || []).join(' ')};
 	grid-column-gap: ${({ gap }) => gap || 0};
 	height: fit-content;
-	align-items: center;
+	align-contents: start;
 
 	@media (max-width: 960px) {
-		display: ${({ isNotResponsive }) => (isNotResponsive ? 'grid' : 'block')};
+		display: ${({ isNotResponsive }) => (isNotResponsive ? 'grid' : 'flex')};
+		flex-wrap: wrap;
+		justify-content: space-around;
+		flex-direction: ${({isRev}) => (isRev ? 'column-reverse' : 'column')};
 		grid-auto-flow: ${({ isReverse }) => (!isReverse ? 'none' : 'dense')};
+		text-align: center;
+	}
+
+	@media (max-width: 96	0px) {
+	display: ${({ isH }) => (isH ? 'flex' : 'block')};
+		flex-wrap: wrap;
+		justify-content: space-around;
+		text-align: ${({ isH }) => (isH ? 'left' : 'left')};
 	}
 `;
 

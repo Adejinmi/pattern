@@ -99,8 +99,6 @@ const ModalContainer = styled.section`
 	width: 100%;
 	max-width: 960px;
 	overflow: hidden;
-	transition: height 4s ease-in-out !important;
-	// min-height: 20vh;
 	height: 90vh;
 	overflow-y: scroll;
 	p:first-child {
@@ -128,18 +126,21 @@ const ModalTitle = styled.h1`
 	font-weight: 400 !important;
 `;
 
-const CloseButton = styled.button`
-	width: 35px;
-	height: 35px;
-	border: 0;
-	border-radius: 5px;
-	display: flex;
-	user-select: none;
-
-	& span {
-		font-size: 24px;
-		margin: auto;
-	}
+const Button = styled.button`
+text-align: center;
+background-color: dimgray;
+color: white;
+box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+width: 350px;
+font-size: 12px;
+border-style: none;
+border-radius: 5px;
+padding: 20px;
+margin-top: 50px;
+cursor: pointer;
+@media(max-width:387px){
+	width: 90%;
+}
 `;
 
 const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
@@ -165,6 +166,7 @@ const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 				data: { data },
 			} = await axios.post(`https'://patternandproduce.herokuapp.com/api/appointment`, values);
 			
+		
 
 			setLoading(false);
 		},
@@ -195,23 +197,18 @@ const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 		<Modalbackdrop show={showModal} showEntrance={showEntrance} showExit={showExit}>
 			<ModalContainer style={{ ...style }} showEntrance={showEntrance} showExit={showExit}>
 				<FlexCenterSpaceBetween style={{ marginBottom: '20px' }}>
-					<ModalTitle>APPOINTMENTS</ModalTitle>
+					<ModalTitle style={{textAlign:'center'}}>APPOINTMENT BOOKING FORM</ModalTitle>
 
-					{!hideClose && <FiX onClick={modalCloseHandler} size='1rem' />}
+					{!hideClose && <FiX onClick={modalCloseHandler} style={{position: 'absolute', top:'30px', right:"30px", cursor:'pointer'}} size='1rem' />}
 				</FlexCenterSpaceBetween>
-				<p>
-				To enjoy our traditional sartorial look, appointments for Bespoke, Made To Measure or Made To Order services can be made by contacting +234 903 990 2994 or kindly request an appointment by filling the form below. 
-
+				<p style={{textAlign:'center'}}>
+					Thank you for choosing Pattern & Produce. 
+					Please fill in the below form to book an appointment with us. 
+					We try as much as possible to respond to messages within 24hrs. Thank you 
 				</p>
-				<p>
-						
-				</p>
-				<p>
-				This is just a request form and it will only be treated based on the information given as regards our Bespoke, Made To Measure or Made To Order services.
-				</p>
-				<div style={{ marginTop: '25px' }}>
+				<div style={{ marginTop: '25px', textAlign:'center'}} >
 					<form onSubmit={handleSubmit}>
-						<Grid columns={['1fr', '1fr']} gap='25px'>
+						<Grid columns={['1fr', '1fr']} gap='25px' style={{textAlign:'left'}}>
 							<Input
 								label='First Name'
 								name='firstName'
@@ -228,7 +225,7 @@ const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 							/>
 						</Grid>
 
-						<Grid columns={['1fr', '1fr']} gap='25px'>
+						<Grid columns={['1fr', '1fr']} gap='25px' style={{textAlign:'left'}}>
 							<Input
 								label='Email Address'
 								name='email'
@@ -246,21 +243,26 @@ const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 							/>
 						</Grid>
 
-						<Input
-							label='Address'
-							name='address'
-							value={values.address}
-							error={errors?.address}
-							onChange={handleChange}
+						<Grid style={{textAlign:'left'}} >
+							<Input 
+								
+								label='Address'
+								name='address'
+								value={values.address}
+								error={errors?.address}
+								onChange={handleChange}
 						/>
-						<TextArea
+						</Grid>
+						<TextArea style={{textAlign:'left'}}
+
 							label='Message'
 							row={9}
 							name='message'
 							value={values.message}
 							onChange={handleChange}
 						/>
-						<Radio
+					<Grid style={{textAlign:'left'}}>
+						<Radio 
 							options={[
 								{ name: 'Bespoke', value: 'bespoke' },
 								{ name: 'Made To Measure', value: 'made to measure' },
@@ -271,7 +273,8 @@ const Modal = ({ handleClose, show = false, title, style, hideClose}) => {
 							error={errors?.appointmentType}
 							onChange={handleChange}
 						/>
-						<ButtonBlack>Book Appointment</ButtonBlack>
+					</Grid>
+						<Button>BOOK AN APPOINTMENT WITH US</Button>
 					</form>
 				</div>
 			</ModalContainer>

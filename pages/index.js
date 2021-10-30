@@ -30,13 +30,42 @@ const GridImg = styled.img`
 	width: 100%;
 	object-fit: cover;
 	object-position: center left;
+	@media (max-width: 960px){
+		height: 150px;
+		margin: auto;
+		margin-bottom: 10px;
+		width: 95%;
+		order: ${({orderOne}) => (orderOne ? '1' : '')};
+		order: ${({orderTwo}) => (orderTwo ? '2' : '')};
+	}
 `;
 
 const MainImg = styled.img`
 	height: 426px;
 	width: 100%;
 	object-fit: cover;
-`;
+	@media(max-width: 960px){
+		height: 250px;
+		margin-bottom: ${({shouldGo}) => (shouldGo ? '30px': '')};
+	}
+`
+
+const Butt= styled.button`
+	background-color: dimgray;
+	color: white;
+	box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+	width: 350px;
+	font-size: 12px;
+	border-style: none;
+	border-radius: 5px;
+	padding: 20px;
+	margin-top: 50px;
+	cursor: pointer;
+	@media(max-width:387px){
+		width: 90%;
+	}
+`
+
 
 
 const IndexPage = () => {
@@ -46,41 +75,26 @@ const IndexPage = () => {
 		<>
 			<Section>
 				<H2>
-					<CenterText>The Stuido</CenterText>
+					<CenterText>The Studio</CenterText>
 				</H2>
-				<Grid columns={['2fr', '1fr']} gap='30px' isReverse>
+				<div style={{textAlign:'center'}}>
 					<MainImg src={landimg} />
-					<div>
-						<p>
-							The Pattern & Produce studios is passionately committed to developing exceptional skilled
-							workforce, for the purpose of sustainable, <i>utilitarian, tribal</i>, and <i>affluence</i> wearables, in
-							the bespoke and ready-to-wear line.
-							<br /> Our design model is fulcrum on people, planet and profit.
-						</p>
-						<Button onClick={() => setModal(true)}>MAKE AN APPOINTMENT AT A BOUTIQUE</Button>
-					</div>
-				</Grid>
+					<Butt onClick={() => setModal(true)}> BOOK AN APPOINTMENT WITH US</Butt>
+				</div>
 			</Section>
 			<Section>
-				<H2>
-					<CenterText>Made to measure</CenterText>
-				</H2>
-				<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
-					<div>
-						<p>
-							Based on your personal measurement data, our in-studio will re-construct a bespoke mannequin
-							from our capsules looks. Your exclusive piece will then be crafted and altered
-							microscopically on this made-to-measure figure by our creatives, which would yield a
-							finished garment that you can be sure the piece sits perfectly on your body like your hand’s
-							in a glove.
-						</p>
-					</div>
-					<MainImg src={image8} />
+				<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px'}} isRev>
+					<p>
+						The made to measure is based on the emblematic Pattern and Produce cuts. 
+						Each chosen model is perfectly adapted to your measurements thanks to Pattern and Produce 
+						tailoring experience
+					</p>
+					<MainImg src={image8} shouldGo/>
 				</Grid>
-				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
+				<Grid columns={['1fr', '1fr', '1fr']} gap='50px' style={{marginTop:'80px'}}>
 					<GridImg src={image17} style={{ objectPosition: '50% 20%' }} />
-					<GridImg src={image16} style={{objectPosition: 'center -40px'}} />
-					<GridImg src={image15} style={{ objectPosition: 'top' }} />
+					<GridImg src={image16} style={{objectPosition: 'center -40px'}}  orderOne/>
+					<GridImg src={image15} style={{ objectPosition: 'top' }} orderTwo/>
 				</Grid>
 			</Section>
 
@@ -88,12 +102,14 @@ const IndexPage = () => {
 				<H2>
 					<CenterText>CHOICE OF FABRIC</CenterText>
 				</H2>
-				<Grid columns={['2fr', '1fr']} gap='30px'>
-					<MainImg src={image1} style={{ objectPosition: 'bottom right' }} />
+				<Grid columns={['2fr', '1fr']} gap='80px' style={{marginTop:'50px'}}>
+					<MainImg src={image1} style={{ objectPosition: 'bottom right' }} shouldGo/>
 					<p>
-						As part of our sustainability agenda, we have influenced the approach of fabric blocking, with
-						the use of hand-made traditional textile prints, woven aso-oke, to fine soft wool, piqué, linen,
-						mesh cotton, lyocell, in making everyday affluence utilitarian looks.
+						This personalised service allows you to benefit from a wide variety of fabric,
+						presented by Taiwo Samuel for his sophistication and quality. The made to measure is made up of 500 fabrics for suits,
+						dinner jackets, coats and shirts and allows you to choose from different materials and different paaters, Price of Wales check.
+						Around 200 exceptional fabrics for shirts complete the service, these can be personalised with the "Bee" embroidery,
+						symbolic of Pattern and Produce initials.
 					</p>
 				</Grid>
 			</Section>
@@ -102,34 +118,33 @@ const IndexPage = () => {
 				<H2>
 					<CenterText>TAILORING IN STORE</CenterText>
 				</H2>
-				<Grid columns={['1fr', '2fr']} gap='30px' style={{ marginBottom: '30px' }}>
+				<Grid columns={['1fr', '2fr']} gap='80px' style={{ marginBottom: '80px', marginTop:'50px' }} isRev>
 					<p>
-						Just as seen on the mannequin, an opportunity is offered in store for alteration of purchased
-						items, ensuring the highest standard finish for the product, with time-honored techniques that’s
-						adapted to your measurement.
+						Pattern and Produce offers you the opporunity to have your purchases altered to ensure on impeccable finish. 
+						The perfect blend between the modernity of the Patterned man style and traditional elegance, each peice is adapted to your 
+						measurement and made in keeping with time-honoured techniques to produce exceptional quality to enjoy this service, 
+						Pattern and Produce invites you to choose and contact our boutique to agree on an appointment with a tailor.
 					</p>
-					<MainImg src={image18} style={{objectPosition: '10% 80%'}} />
+					<MainImg src={image18} style={{objectPosition: ' 60%'}} shouldGo/>
 				</Grid>
-				<Grid columns={['1fr', '1fr', '1fr']} gap='5px'>
-					<GridImg src={image20} style={{objectFit: 'cover', objectPosition:'center -190px'}} />
-					<GridImg src={image22} style={{ objectPosition: 'center', }} />
+				<Grid columns={['1fr', '1fr', '1fr']} gap='80px'>
+					<GridImg src={image20} style={{objectFit: 'cover', objectPosition:'center'}} />
+					<GridImg src={image22} style={{ objectPosition: '20px', }} />
 					<GridImg src={image21} style={{objectPosition: 'center 1px'}} />
 				</Grid>
 			</Section>
 
 			<Section>
-				<H2>
-					<CenterText>STUDIO</CenterText>
-					<p style={{fontSize:'16px', textAlign:'center'}}>YABA, LAGOS</p>
-				</H2>
 					<Grid columns={['3fr']}>
 						<MainImg src={image19} style={{objectFit:'cover'}}  />
 					</Grid>
-				
 			</Section>
+
+		
 			<AppointmentModal handleClose={() => setModal(false)} show={modal} />
 		</>
 	);
 };
 
 export default IndexPage;
+ 
