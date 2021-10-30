@@ -10,21 +10,9 @@ export const Wrapper = styled.div`
 	width:100%;
 `;
 
-export const media = {
+const media = {
 	mobile: '@media(max-width: 800px)',
 	mobile2: '@media(max-width: 600px)'
-}
-export const butt={
-	backgroundColor: 'dimgray',
-	color: 'white',
-	boxShadow: '1px 2px 4px rgba(0, 0, 0,0.5)',
-	width:'350px',
-	fontSize: '12px',
-	borderStyle:'none',
-	borderRadius:'5px',
-	padding: '20px',
-	marginTop: '50px',
-	cursor:'pointer'
 }
 
 export const Button = styled.button`
