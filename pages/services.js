@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import image from 'public/images/service.jpg'
 
-const FormCont = styled.div`
+export const FormCont = styled.div`
 	border: solid 1px lightgrey;
 	width: 100%;
 	padding: 20px 200px;

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import drop from 'public/images/drop.png'
 
-const FormCont = styled.div`
+export const FormCont = styled.div`
 	border: solid 1px lightgrey;
 	width: 100%;
 	padding: 20px 200px;
@@ -24,7 +24,7 @@ const FormCont = styled.div`
 	}
 
 `
-const Q = styled.div`
+export const Q = styled.div`
 	padding: 10px 10%;
 	@media(max-width:960px){
 		padding: 10px 5%;
@@ -35,7 +35,7 @@ const Q = styled.div`
 	}
 	
 `
-const P = styled.p`
+export const P = styled.p`
 	margin-top: 20px;
 	font-weight: bold;
 	@media(max-width:960px){
@@ -51,10 +51,10 @@ const P = styled.p`
 		}
 	}
 `
-const OptDiv=styled.div`
+export const OptDiv=styled.div`
 	display: none;
 `
-const faq={
+ export const faq={
 	position: 'absolute',
 	width: '100%',
 	backgroundColor:'dimgray',
