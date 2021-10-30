@@ -115,7 +115,7 @@ class Fabric extends Component{
                         <p>Payment for purchases on <a href='https://patternandproduce.herokuapp.com'><u>patternandproduce.com</u></a> are made via bank transfers after invoice is being issued. Bank details for deposits would be mailed along with invoice.
                         You can also refer to our <Link href='/terms'><a><u>general terms and conditions of sale.</u></a></Link> </p>
 
-                        <P style={{fontWeight:'bold', marginTop: '30px'}}>YOUR DELIVERY</P>
+                        <P onClick={this.handleClick} style={{fontWeight:'bold', marginTop: '30px'}}>YOUR DELIVERY</P>
                         <p>See <Link href='/services'><a><u>Service Options</u></a></Link> for details.</p>
 
                 </div>

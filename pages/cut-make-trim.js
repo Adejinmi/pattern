@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-// import Radio from 'components/form/Radio';
 export const WWrapper = styled.div`
 	@font-face{
 		font-family: futura;
@@ -20,7 +19,7 @@ export const Button = styled.button`
 	text-align: center;
 `;
 
-export const Cont = styled.div`
+export const CCont = styled.div`
 	max-width: 960px;
 	width: 100%;
 	margin: 0 auto;
@@ -79,7 +78,7 @@ export const E = styled.p`
 	padding: 5px;
 `;
 
-export const Que = styled.div`
+export const QQue = styled.div`
 	margin: 50px 40px;
 	text-align: left;
 	padding-left: 50px;
@@ -113,7 +112,7 @@ export const Que = styled.div`
 		padding-left: 10px;
 	}
 `
-export const Quee = styled.div`
+export const QQuee = styled.div`
 	margin: 50px 40px;
 	text-align: left;
 	padding-left: 50px;
@@ -144,7 +143,7 @@ export const Quee = styled.div`
 	}
 
 `
-export const Qu = styled.div`
+export const QQu = styled.div`
 	display: grid;
 	grid-template-columns: 350px 350px;
 	justify-content: space-evenly;
@@ -299,7 +298,7 @@ class Form extends Component{
 	render(){
 		return(
 			<WWrapper>
-				<Cont>
+				<CCont>
 					<div style={{position:'absolute', width:'100%', left:'0', backgroundColor:'dimgray', padding: '10px'}}>
 						<h4>REGISTER WITH US</h4>
 					</div>
@@ -307,7 +306,7 @@ class Form extends Component{
 					<P style={{textAlign:'left', fontWeight:'bold'}}>PERSONAL DETAILS</P>
 					<E id='skillerror'>FILL ALL FIELDS</E>
 					<E id='success' suc>SUCCESSFUL!</E>
-						<Qu>
+						<QQu>
 						
 							<p>
 								Full Name
@@ -369,9 +368,9 @@ class Form extends Component{
 								value={this.state.lga}
 								onChange={this.handleLga} required></input>
 							</p>
-						</Qu>
+						</QQu>
 
-						<Que>
+						<QQue>
 							
 							<P>Why do you think acquiring an operational skill in garment industry would help you to be better
 								equipped for the future?</P>
@@ -423,28 +422,28 @@ class Form extends Component{
 							/> To develop a career in fashion and garment making
 							</p>
 							
-						</Que>
+						</QQue>
 
-						<Que>
+						<QQue>
 							<P>Will you be able to devote your time to learn garment making if given the opportunity to learn
 							at Pattern & Produce?</P>
 						<input type='radio' name='time' value='yes' required onChange={this.handleTime} /> <span style={{ marginRight:'10px'}}>Yes</span>
 						<input type='radio' name='time' value='no' required onChange={this.handleTime} /><span> No</span>
-						</Que>				
+						</QQue>				
 
-						<Que>
+						<QQue>
 							<P>How often will you be available to learn?</P>
 							<input type='text' name='availability' required onChange={this.handleAvailabilty} /> <span style={{color:'white', marginRight:'10px'}}>Yes</span>
 							
-						</Que>		
+						</QQue>		
 
-						<Que>
+						<QQue>
 							<P>Will your parents be able to afford the cost of the training?</P>
 							<input type='radio' name='cost' value='yes' required onChange={this.handleCost} /> <span style={{ marginRight:'10px'}}>Yes</span>
 							<input type='radio' name='cost' value='no' required onChange={this.handleCost} /><span style={{}}>No</span>
-						</Que>	
+						</QQue>	
 
-						<Quee>
+						<QQuee>
 							<h3>PARENTS/GUARDIANS CONTACT</h3>
 							<p>
 								Full Name
@@ -466,12 +465,12 @@ class Form extends Component{
 								value={this.state.pgaddress}
 								onChange={this.handlePgAddress} required></input>
 							</p>
-						</Quee>				
+						</QQuee>				
 						<input type='submit' value='REGISTER NOW' onClick={this.handleForm}></input>
 
 
 					</form>
-				</Cont>
+				</CCont>
 			</WWrapper>
 		)
 
