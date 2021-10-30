@@ -25,7 +25,7 @@ import image20 from 'public/images/PP B&W-3.jpg';
 import image21 from 'public/images/PP B&W-10.jpg';
 import image22 from 'public/images/PP B&W-20.jpg';
 
-const GridImg = styled.img`
+export const GridImg = styled.img`
 	height: 414px;
 	width: 100%;
 	object-fit: cover;
@@ -40,7 +40,7 @@ const GridImg = styled.img`
 	}
 `;
 
-const MainImg = styled.img`
+export const MainImg = styled.img`
 	height: 426px;
 	width: 100%;
 	object-fit: cover;
@@ -50,7 +50,7 @@ const MainImg = styled.img`
 	}
 `
 
-const Butt= styled.button`
+export const Butt= styled.button`
 	background-color: dimgray;
 	color: white;
 	box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
