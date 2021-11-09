@@ -125,7 +125,7 @@ function openTw(){
 }
 async function sendMail(mail){
 		const data = mail;
-		const url ='https://patternandproduce.herokuapp.com/api/cmt';
+		const url ='https://patternandproduce.herokuapp.com/api/newsletter';
 		axios.post(url, {
 			data
 		})

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 export const WWrapper = styled.div`
 	@font-face{
 		font-family: futura;
@@ -65,7 +66,7 @@ export const P = styled.p`
 `;
 
 export const E = styled.p`
-	color: ${({suc}) => (suc ? 'green' : 'red')};;
+	color: ${({suc}) => (suc ? 'green' : 'red')};
 	font-size: 14px;
 	font-weight: bolder;
 	letter-spacing: 1px;
@@ -74,7 +75,7 @@ export const E = styled.p`
 	margin-top: 15px;	
 	display:none;
 	text-align: left;
-	background-color: ${({suc}) => (suc ? 'lemon' : 'pink')};
+	background-color: ${({suc}) => (suc ? 'lightgreen' : 'pink')};
 	padding: 5px;
 `;
 
@@ -180,6 +181,7 @@ class Form extends Component{
 	constructor(props){
 		super(props)
 		this.state={
+			loading: false,
 			name:'',
 			date: '',
 			school: '',
@@ -195,7 +197,7 @@ class Form extends Component{
 			skill4: 'To become self-reliant and financially independent',
 			skill5: 'To understand the industrial process of garment production, thereby gathering experience for future employment',
 			skill6:'To develop a career in fashion and garment making',
-			skill:[],
+			skill:'',
 			time:'',
 			availability:'',
 			cost:'',
@@ -248,13 +250,12 @@ class Form extends Component{
 		})
 	}
 	handleSkill=(event)=>{
-		if(event.target.checked){
 			var sk=event.target.value
-			this.setState(prevState=> ({
-				skill:prevState.skill.concat(sk),
-			}))
+			this.setState({
+				skill:sk
+			})
 		}
-	}
+	
 	handleTime=(event)=>{
 		this.setState({
 			time:event.target.value
@@ -272,9 +273,12 @@ class Form extends Component{
 	}
 	handleForm=(event)=>{
 		event.preventDefault(event);
+		document.getElementById('subb').value='Please wait...';
+		document.getElementById('subb').attributes["disabled"]="";
 		const { name, date, school, mobile, email, address, age, sex, lga, skill, time, availability, cost } = this.state;
 		if(name=='' || date=='' || school=='' || mobile=='' || email=='' || address=='' || age=='' || sex=='' || lga=='' || skill.length==0 || time=='' || availability=='' || cost==''){
 			document.getElementById('skillerror').style.display="block";
+			document.getElementById('stat').scrollIntoView();
 		}
 		else{
 			document.getElementById('skillerror').style.display="none";
@@ -286,10 +290,15 @@ class Form extends Component{
 	  		.then((res) => {
 				if (res.data=='Inserted Succesfully'){
 				document.getElementById('success').style.display="block";
+				document.getElementById('stat').scrollIntoView();
+				this.setState({
+					loading:true
+				})
 			}
 	  		}, (error) => {
 				document.getElementById('skillerror').innerHTML='Something went wrong, Try Again'
 				document.getElementById('skillerror').style.display="block";
+				document.getElementById('stat').scrollIntoView();
 	 		 });
 			  
 			}
@@ -300,7 +309,7 @@ class Form extends Component{
 			<WWrapper>
 				<CCont>
 					<div style={{position:'absolute', width:'100%', left:'0', backgroundColor:'dimgray', padding: '10px'}}>
-						<h4>REGISTER WITH US</h4>
+						<h4 id='stat'>REGISTER WITH US</h4>
 					</div>
 					<form onSubmit={this.handleForm}>
 					<P style={{textAlign:'left', fontWeight:'bold'}}>PERSONAL DETAILS</P>
@@ -466,7 +475,7 @@ class Form extends Component{
 								onChange={this.handlePgAddress} required></input>
 							</p>
 						</QQuee>				
-						<input type='submit' value='REGISTER NOW' onClick={this.handleForm}></input>
+						<input type='submit' id='subb' value='REGISTER NOW' onClick={this.handleForm}></input>
 
 
 					</form>

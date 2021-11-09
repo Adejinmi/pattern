@@ -38,21 +38,26 @@ const Div = styled.div`
         }
         
     }
-    & table, tr , td, th{
+    & table, th{
         border: 1px dotted dimgrey;
         border-collapse: collapse;
         text-align: center;
         word-break: break-all
-        }   
+        }
+
     & th{
         width: 500px;
         padding:10px;
         font-size: 15px;
     }
+    & tr{
+        border:none;
+    }
     & td{
         width: 500px;
-        padding: 20px 0px;
         font-size: 15px;
+        border: 1px dotted dimgrey;
+        word-break: break-word;
     }
 
     td p:first-child{
@@ -138,46 +143,100 @@ class Fabric extends Component{
                     </thead>
                     <tbody>
                     <tr>
-                        <td><b>KAFTAN</b> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>KAFTAN</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>50-55% Suiting Wool/ 100% Cotton</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>70% Suiting wool</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>80-90% Suting wool </td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}> 95-100% Suiting Wool </td>
+                    </tr>
+
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N50,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N75,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N100,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N150,000</td>
+                    </tr>
+
+                    <tr>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>AGBADA</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>50-55% Suiting Wool/ 100% Cotton</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>70% Suiting Wool</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>80-90% Suting Wool</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>95-100% Suiting Wool</td>
+                    </tr>
+
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N100,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N125,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N150,000 </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N200,000</td>
                     </tr>
                         
                     <tr>
-                        <td><p>AGBADA</p> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>JACKETS/SHIRPEL</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Adire</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Linen</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Suiting Wool</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Aso Oke </td>
+                    </tr>
+
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N50,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N75,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N100,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N120,000</td>
                     </tr>
 
                     <tr>
-                        <td><p>JACKETS/SHIRPEL</p> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>PANTS</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Adire</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Linen</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Suiting Wool</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Aso Oke </td>
                     </tr>
 
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N30,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N40,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N40,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N50,000</td>
+                    </tr>
+                    
                     <tr>
-                         <td><p>PANTS</p> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>SHORTS</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Adire</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Linen</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Aso Oke </td>
                     </tr>
 
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N20,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N30,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N40,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}> </td>
+                    </tr>
+                    
                     <tr>
-                         <td><p>SHORTS</p> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style={{borderBottom:'none',padding:'25px 0 15px 0'}}><b>SHIRTS</b></td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Adire</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}>Linen</td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}> </td>
+                        <td style={{borderBottom:'none',paddingTop:'8px'}}> </td>
                     </tr>
 
-                    <tr>
-                         <td><p>SHRITS</p> <p>Price Point</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr >
+                        <td style={{borderTop:'none',paddingBottom:'10px'}}>Price Point </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N20,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}>N30,000</td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}> </td>
+                        <td style={{borderTop:'none',paddingBottom:'8px'}}> </td>
                     </tr>
+                    
                     </tbody>
                 </table>
 
