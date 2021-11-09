@@ -4,7 +4,7 @@
 	"private": true,
 	"proxy": "https://patternandproduce.herokuapp.com/api/",
 	"engines": {
-		"node": "^14.14.35"
+		"node": "^16.13.0"
 	},
 	"scripts": {
 		"dev": "next dev",
