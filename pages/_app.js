@@ -3,11 +3,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 
 export const Layout = styled.div`
-	max-width: 1200px;
 	width: 100%;
-	padding: 0 20px;
+	padding: 0 6%;
 	margin: 0 auto;
 `;
 
@@ -19,7 +19,11 @@ function MyApp({ Component, pageProps }) {
 		setIsOpen(!isOpen);
 	};
 	const router = useRouter();
+	useEffect(() => {
+		document.getElementById('mobil').style.display='none';
+	  });
 	return router.route !== '/cmt' ? (
+		
 		<Layout>
 			<Header handleNavBar={handleNavBar} isOpen={isOpen} left={left}/>
 			<Component {...pageProps} />

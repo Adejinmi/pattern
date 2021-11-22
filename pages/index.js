@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { CenterText, Grid, Button, H2, Section } from '../components/Styles';
 import AppointmentModal from 'components/AppointmentModal';
@@ -34,7 +34,6 @@ export const GridImg = styled.img`
 		height: 150px;
 		margin: auto;
 		margin-bottom: 10px;
-		width: 95%;
 		order: ${({orderOne}) => (orderOne ? '1' : '')};
 		order: ${({orderTwo}) => (orderTwo ? '2' : '')};
 	}
@@ -53,7 +52,7 @@ export const MainImg = styled.img`
 export const Butt= styled.button`
 	background-color: dimgray;
 	color: white;
-	box-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+	box-shadow: 0px 10px 20px #E2E2E2;
 	width: 350px;
 	font-size: 12px;
 	border-style: none;
@@ -68,8 +67,28 @@ export const Butt= styled.button`
 
 
 
+
 const IndexPage = () => {
 	const [modal, setModal] = React.useState(false);
+	const [isDesktop, setDesktop] = useState(false);
+
+	useEffect(() => {
+		if (window.innerWidth > 960) {
+		  setDesktop(true);
+		} else {
+		  setDesktop(false);
+		}
+	
+		const updateMedia = () => {
+		  if (window.innerWidth > 960) {
+			setDesktop(true);
+		  } else {
+			setDesktop(false);
+		  }
+		};
+		window.addEventListener('resize', updateMedia);
+		return () => window.removeEventListener('resize', updateMedia);
+	  }, []);
 
 	return (
 		<>
@@ -91,11 +110,32 @@ const IndexPage = () => {
 					</p>
 					<MainImg src={image8} shouldGo/>
 				</Grid>
+
+				<div>
+				{isDesktop ? (
 				<Grid columns={['1fr', '1fr', '1fr']} gap='50px' style={{marginTop:'80px'}}>
 					<GridImg src={image17} style={{ objectPosition: '50% 20%' }} />
-					<GridImg src={image16} style={{objectPosition: 'center -40px'}}  orderOne/>
-					<GridImg src={image15} style={{ objectPosition: 'top' }} orderTwo/>
+					<GridImg src={image16} style={{objectPosition: 'center -40px'}} />
+					<GridImg src={image15} style={{ objectPosition: 'top' }} />
 				</Grid>
+				) :
+
+				(
+					<>
+					<Grid columns={['60%', '35%']} gap='8px' isNotResponsive>
+						<GridImg src={image16} style={{objectFit: 'cover', objectPosition:'center -20px', height:'110px'}} />
+						<GridImg src={image15} style={{ objectFit: 'stretch', width: '100%', height:'110px' }} />
+						
+					</Grid>
+					<MainImg src={image17} style={{objectPosition: 'center center', height: '100px', marginBottom:'10px', }} />
+				
+					
+					</>
+				)
+				
+				}
+				</div>
+				
 			</Section>
 
 			<Section>
@@ -127,11 +167,29 @@ const IndexPage = () => {
 					</p>
 					<MainImg src={image18} style={{objectPosition: ' 60%'}} shouldGo/>
 				</Grid>
-				<Grid columns={['1fr', '1fr', '1fr']} gap='80px'>
+				<div>
+				{isDesktop ? (
+					<Grid columns={['1fr', '1fr', '1fr']} gap='80px'>
 					<GridImg src={image20} style={{objectFit: 'cover', objectPosition:'center'}} />
 					<GridImg src={image22} style={{ objectPosition: '20px', }} />
 					<GridImg src={image21} style={{objectPosition: 'center 1px'}} />
-				</Grid>
+					</Grid>
+				) :
+
+				(
+					<>
+					<MainImg src={image21} style={{objectPosition: 'top center', height: '200px', marginBottom:'10px'}} />
+				
+					<Grid columns={['1fr', '1fr']} gap='8px' isNotResponsive>
+						<GridImg src={image20} style={{objectFit: 'cover', objectPosition:'center'}} />
+						<GridImg src={image22} style={{ objectFit: 'stretch', width: '100%' }} />
+						
+					</Grid>
+					</>
+				)
+				
+				}
+				</div>
 			</Section>
 
 			<Section>

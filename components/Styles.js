@@ -8,6 +8,10 @@ export const Grid = styled.div`
 	height: fit-content;
 	align-contents: start;
 
+	p{
+		opacity: 0.7;
+	}
+
 	@media (max-width: 960px) {
 		display: ${({ isNotResponsive }) => (isNotResponsive ? 'grid' : 'flex')};
 		flex-wrap: wrap;

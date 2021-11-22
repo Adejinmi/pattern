@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import logo from 'public/images/logo.svg';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FiSettings, FiLogOut, FiMenu, FiX } from 'react-icons/fi';
+import { FiSettings, FiSearch, FiMenu, FiX } from 'react-icons/fi';
 
 export const Wrapper = styled.div`
 	position: relative;
@@ -15,31 +15,20 @@ export const Wrapper = styled.div`
 `;
 
 export const Nav = styled.nav`
-	max-width: 800px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin: 25px auto 20px;
-	padding-bottom: 15px;
+	margin: 0px;
+	border-bottom: 1px solid #c4c4c4;
+	a{
+		opacity: 0.7;
+		padding-bottom: 19px;
+	}
 	a.active {
-		font-weight: 800;
+		font-weight: bold;
+		border-bottom: 2px solid black;
 	}
-	p {
-		font-size: 0.85rem;
-		margin-bottom: 10px;
-	}
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		bottom: 0;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		// border: 1px solid #c4c4c4;
-		height: 1px;
-		background: #c4c4c4;
-	}
+	
 	@media (max-width: 960px) {
 		display: none;
 	}
@@ -49,23 +38,23 @@ export const NavMobile = styled.nav`
 	display: none;
 	@media (max-width: 960px) {
 		height: 100vh;
-		width: 230px;
-		background-color: white;
-		box-shadow: 0 15px 20px 0 rgba(82, 65, 100, 0.07);
+		width: 100%;
+		background-color: rgba(0,0,0,0.25);
 		transition: 0.3s all;
 		position: fixed;
 		top: 0px;
 		left: 0;
 		z-index: 222;
-		height: 100vh;
-		bottom: 0;
-		display: block;
-		left: ${(props) => `${props.left}px`};
+		display: none;
 		a {
+			text-align: center;
 			display: block;
-			padding: 30px;
+			padding: 10.5px;
+			font-size: 14px;
+			opacity: 0.7;
 			&.active {
-				font-weight: 600;
+				opacity: 1;
+				font-weight: bold;
 			}
 		}
 	}
@@ -84,6 +73,12 @@ const Menu = styled.div`
 		display: inline-block;
 	}
 `;
+const Div= styled.div`
+	background-color: white;
+	box-sizing: border-box;
+	border-top: ${({isBod}) => (isBod ? '0.4px solid rgba(115,115,115,0.5)' : '' )};
+	padding:  ${({isBod}) => (isBod ? '25px 0px' : '' )};
+`
 
 const Header = ({ isOpen, handleNavBar, left }) => {
 	const router = useRouter();
@@ -92,19 +87,11 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 		<Wrapper>
 			<img src={logo} />
 			<Menu>
-				{isOpen ? (
-					<FiX onClickCapture={() => handleNavBar('closed')} color='#000' style={{ marginRight: '15px' }} />
-				) : (
-					<FiMenu
-						onClickCapture={() => handleNavBar('opened')}
-						color='#000'
-						style={{ marginRight: '15px' }}
-					/>
-				)}
+					<FiMenu onClickCapture={() => document.getElementById('mobil').style.display="block"} color='#000' style={{ marginRight: '15px' }} />
 			</Menu>
 			<Nav>
 				<Link href='/'>
-					<a className={router.pathname === '/index' ? 'active' : ''}>HOME</a>
+					<a className={router.pathname === '/' ? 'active' : ''}>HOME</a>
 				</Link>
 
 				<Link href='/mtm'>
@@ -119,16 +106,19 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 				<Link href='/cut-make-trim'>
 					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CUT-MAKE-TRIM	</a>
 				</Link>
+				<Link href="#">
+					<FiSearch style={{cursor: 'pointer'}} />
+				</Link>
 			</Nav>
-			<NavMobile left={left}>
-				{isOpen && (
-					<FiX onClickCapture={() => handleNavBar('closed')} color='#000' style={{ marginRight: '15px' }} />
-				)}	
+			<NavMobile left={left} id='mobil'>
+			<Div>
+					<FiX onClickCapture={() => document.getElementById('mobil').style.display="none"} color='#000' style={{ marginLeft: '15px', marginBottom:'45px' }} />
+				<Div isBod>
 				<Link href='/'>
-					<a className={router.pathname === '/index' ? 'active' : ''}>HOME</a>
+					<a className={router.pathname === '/' ? 'active' : ''}>HOME</a>
 				</Link>
 				<Link href='/mtm'>
-					<a className={router.pathname === '/mtm' ? 'active' : ''}>MTM ARTICLES</a>
+					<a className={router.pathname === '/mtm' ? 'active' : ''}>MADE-TO-MEASURE</a>
 				</Link>
 				<Link href='/fabric'>
 					<a className={router.pathname === '/fabric' ? 'active' : ''}>FABRIC ARTICLES</a>
@@ -137,8 +127,10 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 					<a className={router.pathname === '/herbadashrey' ? 'active' : ''}>HERBADASHERY</a>
 				</Link>
 				<Link href='/cut-make-trim'>
-					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CMT MASTERY</a>
+					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CUT-MAKE-TRIM</a>
 				</Link>
+				</Div>
+			</Div>
 			</NavMobile>
 		</Wrapper>
 	);

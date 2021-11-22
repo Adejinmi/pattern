@@ -14,6 +14,7 @@ const Wrapper = styled.nav`
 	flex-wrap: wrap;
 	padding: 0px 10px;
 	margin-top: 5px;
+	opacity: 0.7;
 	p {
 		text-align: center;
 		margin-bottom: 10px;
@@ -63,14 +64,20 @@ border-radius: 50%;
 `;
  const Div = styled.div`
 	width: 300px;
+	p{
+		text-align: left;
+		@media(max-width: 960px){
+			text-align: ${({isMe}) => (isMe ? 'center' : 'left' )};
+		}
+	}
 	@media(max-width: 960px){
-		text-align: center;
 		margin-bottom: 30px;
+		text-align: ${({isMe}) => (isMe ? 'center' : 'left' )};
 	}
  `
 const Media = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: flext-start;
 	& > div {
 		min-height: 30px;
 		min-width: 30px;
@@ -81,11 +88,9 @@ const Media = styled.div`
 		align-items: center;
 		margin-right: 20px;
 	}
-
-	// svg {
-	// 	height: 20px;
-	// 	width: 20px;
-	// }
+	@media(max-width: 960px){
+		justify-content: center;
+	}
 `;
 const List = styled.div`
 	width: 300px;
@@ -98,7 +103,7 @@ const List = styled.div`
 		font-size: 0.9rem;
 	}
 	@media(max-width: 960px and min-width:660px){
-		order: 3;
+		
 	}
 `;
 
@@ -171,20 +176,21 @@ export default () => (
 				</div>
 		</Section>
 		<Div>
-			<p style={{fontSize:'17px'}}><b>Subscribe to our Newsletter</b></p>
+			<p style={{fontSize:'17px', textAlign:'left'}}><b>Subscribe to our Newsletter</b></p>
 				<Input placeholder='Email Address' id='subscribe' onSubmit={subnew}/>
 				<Subbut id='butt' onClick={subnew}>&gt;</Subbut>
 			<p id='wait' style={{fontSize:'13px', color:'dimgray', display:'none'}}>Please wait........</p>
 		</Div>
 		<List>
 			<p><b>QUESTIONS</b></p>
-			<p><Link href='/faq'>FAQ</Link></p>
 			<p><Link href='/services'>Service Options</Link></p>
-			<p><Link href='/terms'>Legal Terms</Link></p>
 			<p><Link href='/contact'>HELP AND CONTACT</Link></p>
+			<p><Link href='/faq'>FAQ</Link></p>
+			<p><Link href='/terms'>Legal Terms</Link></p>
+			
 		</List>
-		<Div>
-			<p style={{fontWeight:'bold'}}>Follow Pattern and Produce</p>
+		<Div isMe>
+			<p style={{fontWeight:'bold'}} isMe>Follow Pattern and Produce</p>
 			<Media>
 				<div>
 					<FiInstagram style={{cursor: "pointer"}} onClick={openInst}/>
