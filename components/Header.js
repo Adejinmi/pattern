@@ -107,7 +107,7 @@ const Header = ({ isOpen, handleNavBar, left }) => {
 					<a className={router.pathname === '/cut-make-trim' ? 'active' : ''}>CUT-MAKE-TRIM	</a>
 				</Link>
 				<Link href="#">
-					<FiSearch style={{cursor: 'pointer'}} />
+					<FiSearch style={{cursor: 'pointer', height:'24.7px', width:'24.7px'}} />
 				</Link>
 			</Nav>
 			<NavMobile left={left} id='mobil'>

@@ -65,7 +65,7 @@ border-radius: 50%;
  const Div = styled.div`
 	width: 300px;
 	p{
-		text-align: left;
+		text-align: center;
 		@media(max-width: 960px){
 			text-align: ${({isMe}) => (isMe ? 'center' : 'left' )};
 		}
@@ -77,7 +77,7 @@ border-radius: 50%;
  `
 const Media = styled.div`
 	display: flex;
-	justify-content: flext-start;
+	justify-content: center;
 	& > div {
 		min-height: 30px;
 		min-width: 30px;
@@ -190,7 +190,7 @@ export default () => (
 			
 		</List>
 		<Div isMe>
-			<p style={{fontWeight:'bold'}} isMe>Follow Pattern and Produce</p>
+			<p style={{fontWeight:'bold', fontSize:'18px'}} isMe>Social Interaction</p>
 			<Media>
 				<div>
 					<FiInstagram style={{cursor: "pointer"}} onClick={openInst}/>
