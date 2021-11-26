@@ -3,7 +3,7 @@ import { Grid } from 'components/Styles';
 import styled from 'styled-components';
 import axios from 'axios';
 import ruler from 'public/images/ruler.png';
-import vector from 'public/images/vector.svg';
+import vector from 'public/images/mark.png';
 import close from 'public/images/close.png';
 
 export const FabricList = styled.ul`
