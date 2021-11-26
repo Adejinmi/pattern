@@ -25,6 +25,7 @@ export const Nav = styled.nav`
 		padding-bottom: 19px;
 	}
 	a.active {
+		opacity: 1;
 		font-weight: bold;
 		border-bottom: 2px solid black;
 	}

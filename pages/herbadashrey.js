@@ -2,6 +2,7 @@ import React from 'react';
 import { CenterText, GridEqual } from '../components/Styles';
 import styled from 'styled-components';
 import axios from 'axios';
+import filter from 'public/images/filter.svg';
 
 export const MaterialWrapper = styled.a`
 	position: relative;
@@ -9,9 +10,20 @@ export const MaterialWrapper = styled.a`
 	display: block;
 	p {
 		margin-top: 15px;
-		font-family: 'Domine', serif;
 	}
 `;
+export const Div = styled.div`
+	display: inline-flex;
+	margin-top: 80px;
+	position: absolute;
+	right: 6%;
+	cursor: pointer;
+	p{
+		font-size: 16px;
+		opacity: 0.7;
+	}
+	
+`
 const Material = ({ fabric }) => (
 	<MaterialWrapper href={`herbadashrey/${fabric?.number}`}>
 		<img src={fabric.imgUrl} />
@@ -22,7 +34,11 @@ const Material = ({ fabric }) => (
 const Fabric = ({ fabrics }) => {
 	return (
 		<>
-			<GridEqual count={3} style={{ marginTop: '60px' }} gap={'40px'}>
+		<Div style={{}}>
+		 	<img src={filter} style={{height:'24px', width: '24px', opacity:'0.6', marginRight: '10px'}} /> <p> Filter by: </p>
+		</Div>
+
+			<GridEqual count={3} style={{ marginTop: '150px' }} gap={'40px'}>
 				{fabrics.map((fabric, i) => (
 					<Material key={i} fabric={fabric} />
 				))}
