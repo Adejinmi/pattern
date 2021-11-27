@@ -21,7 +21,7 @@ export const Grid = styled.div`
 		text-align: center;
 	}
 
-	@media (max-width: 96	0px) {
+	@media (max-width: 960px) {
 	display: ${({ isH }) => (isH ? 'flex' : 'block')};
 		flex-wrap: wrap;
 		justify-content: space-around;
@@ -29,9 +29,19 @@ export const Grid = styled.div`
 	}
 `;
 
-export const GridEqual = styled(Grid)`
+export const GridEqual = styled.div`
+	display: grid;
+	grid-column-gap: ${({ gap }) => gap || 0};
+	height: fit-content;
+	align-contents: start;
 	grid-template-columns: ${(props) => `repeat(${props.count || 3} , 1fr)`};
 	grid-row-gap: ${({ gap }) => gap || 0};
+	@media (max-width:960px){
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 10px;
+		grid-row-gap: 20px;
+		
+	}
 `;
 
 export const Container = styled.div`
