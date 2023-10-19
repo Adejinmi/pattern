@@ -29,8 +29,8 @@ function runMiddleware(req, res, fn) {
 	const transporter = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
-			user: 'mtu.esmmusic20@gmail.com',
-			pass: 'Esmmusic2020',
+			user: '',
+			pass: '',
 		},
 	});
 
